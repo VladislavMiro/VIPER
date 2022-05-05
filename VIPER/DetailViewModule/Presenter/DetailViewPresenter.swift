@@ -9,6 +9,7 @@ final class DetailViewPresenter {
     init(view: DetailViewProtocol, router: RouterProtocol, interactor: DetailViewInteractorProtocol) {
         self.view = view
         self.router = router
+        self.interactor = interactor
     }
     
 }
@@ -16,9 +17,8 @@ final class DetailViewPresenter {
 extension DetailViewPresenter: DetailViewPresenterProtocol {
         
     public func presentUser() {
-        if let user = interactor?.user {
-            view?.setData(user: user)
-        }
+        let user = interactor.user
+        view?.setData(user: user)
     }
     
 }
